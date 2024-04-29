@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Car;
 use App\Http\Controllers\CarController;
@@ -33,7 +34,9 @@ Route::get('/listings/{id}', function($id) {
     return view('listing');
 });
 
-//Route::resource('cars', [CarController::class]);
+//test routes 
+Route::get('/test-api', [VehicleController::class, 'testApi']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
