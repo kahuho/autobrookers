@@ -1,6 +1,6 @@
 <?php
 // app/Services/VehicleService.php
-
+//Uses car.api to retrieve vehicle attributes for use in form fields
 namespace App\Services;
 
 use GuzzleHttp\Client;
@@ -107,6 +107,4 @@ class VehicleService
             throw new \Exception('Error fetching years: ' . $e->getMessage());
         }
     }
-    // Implement other methods to interact with RAPIDAPI endpoints
-    //years, makes,models, trims, trim view, bodies, engines, exterior color, and vehicle attributes
 }

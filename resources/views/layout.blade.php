@@ -30,7 +30,6 @@
                     <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Sell Your Car</a>
                     <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Make an Order</a>
                     <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">About</a>
-                    <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Contacts</a>
                     <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Search</a>
                     <!-- Breeze Authentication Links -->
                     @auth

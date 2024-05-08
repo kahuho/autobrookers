@@ -20,7 +20,7 @@
         <label for="phone_number">Phone Number:</label>
         <input type="text" id="phone_number" name="phone_number" required><br><br>
 
-        <label>Contact Method:</label><br>
+        <label>Preferred Contact Method:</label><br>
         <input type="radio" id="contact_method_email" name="contact_method" value="email" required>
         <label for="contact_method_email">Email</label><br>
         <input type="radio" id="contact_method_whatsapp" name="contact_method" value="whatsapp" required>

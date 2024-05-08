@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('make');
             $table->string('model');
             $table->integer('year');
-            $table->string('availability');
-            $table->string('current_location');
+            $table->boolean('availability');
             $table->integer('mileage');
             $table->decimal('price', 10, 2);
             $table->text('description');

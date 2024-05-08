@@ -61,5 +61,6 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         //
+
     }
 }

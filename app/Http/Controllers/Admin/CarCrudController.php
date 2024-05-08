@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\CarRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Validation\Rules\ValidUploadMultiple;
+
 
 /**
  * Class CarCrudController
@@ -21,7 +23,7 @@ class CarCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,23 +35,44 @@ class CarCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        //Sets the columns for the cars datatable
+        CRUD::column('registration_number')->type('text');
+        CRUD::column('make')->type('text');
+        CRUD::column('model')->type('text');
+        CRUD::column('year')->type('number');
+        CRUD::column('availability')->type('boolean');
+        CRUD::column('mileage')->type('text');
+        CRUD::column('price')->type('number');
+        CRUD::column('description')->type('text');
+        CRUD::column('drive')->type('text');
+        CRUD::column('horse_power')->type('text');
+        CRUD::column('torque')->type('text');
+        CRUD::column('transmission')->type('text');
+        CRUD::column('fuel_type')->type('text');
+        CRUD::column('engine_size')->type('text');
+        CRUD::column('accident_history')->type('text');
+        CRUD::column('images')->type('upload_multiple')->withFiles();
 
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        //Buttons to allow the admin to manipulate car models that are currently stored
+        CRUD::buttons();
+
+
+        //Filters to query the db  based on specific parameters 
+        
+
+
+
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -57,15 +80,27 @@ class CarCrudController extends CrudController
     {
         CRUD::setFromDb(); // set fields from db columns.
 
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field([   // Upload
+            'name'      => 'images',
+            'label'     => 'Car Images',
+            'type'      => 'upload_multiple',
+            'withFiles' => true,
+            'images' => ValidUploadMultiple::field('required|min:2|max:5')
+                ->file('file|mimes:jpeg,png,jpg,gif,svg|max:2048'),
+        ]);
+
+        CRUD::field([   // Text
+            'name'  => 'registration_number',
+            'label' => 'Car Registration Number',
+            'type'  => 'text',
+        ]);
+
+
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
