@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trusted Autobrokers</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Override Tailwind CSS */
-        /* Add custom styles here */
-    </style>
+    
 </head>
 <body class="bg-gray-100">
 
@@ -26,9 +23,8 @@
             <!-- Navbar items -->
             <div class="hidden sm:block">
                 <div class="flex space-x-4">
-                    <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Vehicles in Stock</a>
-                    <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Sell Your Car</a>
-                    <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Make an Order</a>
+                    <a href="{{ route('cars.index') }}" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Vehicles in Stock</a>
+                    <a href="{{ route('sell_on_behalf.car-details') }}" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Sell Your Car</a>
                     <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">About</a>
                     <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Search</a>
                     <!-- Breeze Authentication Links -->
@@ -54,7 +50,47 @@
 <!-- Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     @yield('content')
+
 </div>
 
 </body>
+<footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Company Section -->
+        <div class="text-center md:text-left">
+            <h4 class="text-lg font-semibold mb-4">Company</h4>
+            <ul class="text-sm">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+
+        <!-- Support Section -->
+        <div class="text-center md:text-left">
+            <h4 class="text-lg font-semibold mb-4">Support</h4>
+            <ul class="text-sm">
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+            </ul>
+        </div>
+
+        <!-- Location Section -->
+        <div class="text-center md:text-left">
+            <h4 class="text-lg font-semibold mb-4">Location</h4>
+            <p class="text-sm">123 Main St, City, Country</p>
+            <p class="text-sm">Phone: +123456789</p>
+            <p class="text-sm">Email: info@example.com</p>
+        </div>
+    </div>
+
+    <!-- Bottom Section (Optional) -->
+    <div class="mt-8 text-center">
+        <p class="text-sm">&copy; {{ date('Y') }} AutoBroker. All rights reserved.</p>
+        <p class="text-sm mt-2">Designed by Kahuho</p>
+    </div>
+</footer>
+
 </html>

@@ -1,11 +1,14 @@
 <!-- resources/views/seller_contact_form.blade.php -->
 
-@extends('layouts.app')
-
+@extends('layout')
 @section('content')
+
+<div class="container mx-auto px-4 lg:px-0 lg:max-w-xl lg:w-1/2">
+    <div class="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+        <div class="p-4">
     <h1>Seller Contact Details</h1>
 
-    <form method="post" action="{{ route('submit_seller_contact') }}">
+    <form method="post" action="{{ route('sell_on_behalf.seller-details.post') }}">
         @csrf
 
         <label for="first_name">First Name:</label>
@@ -20,14 +23,16 @@
         <label for="phone_number">Phone Number:</label>
         <input type="text" id="phone_number" name="phone_number" required><br><br>
 
-        <label>Preferred Contact Method:</label><br>
-        <input type="radio" id="contact_method_email" name="contact_method" value="email" required>
-        <label for="contact_method_email">Email</label><br>
-        <input type="radio" id="contact_method_whatsapp" name="contact_method" value="whatsapp" required>
-        <label for="contact_method_whatsapp">WhatsApp</label><br><br>
+         <label for="id_number">ID Number:</label>
+        <input type="text" id="id_number" name="id_number" required><br><br>
 
-        <a href="{{ route('show_car_details_form') }}" class="btn btn-danger">Previous</a>
+
+        <a href="{{ route('sell_on_behalf.car-details') }}" class="btn btn-danger">Previous</a>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
+    </div>
+        </div>
+
 @endsection

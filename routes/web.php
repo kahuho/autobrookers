@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\SellOnBehalfOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Car;
 use App\Http\Controllers\CarController;
@@ -20,11 +21,16 @@ Route::get('/', function () {
     return view('layout');
 });
 
-Route::get('/home', function () {
-    return view('listings', [
-        'listing' => Car::all()
-    ]);
-});
+Route::get('/home', [CarController::class, 'index'])->name('cars.index');
+
+// Routes for selling on behalf 
+Route::get('sell-on-behalf/car-details', [SellOnBehalfOrderController::class, 'createCarDetailsForm'])->name('sell_on_behalf.car-details');
+Route::post('sell-on-behalf/car-details', [SellOnBehalfOrderController::class, 'postCarDetailsForm'])->name('sell_on_behalf.car-details.post');
+  
+Route::get('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'createSellerDetailsForm'])->name('sell_on_behalf.seller-details');
+Route::post('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'postSellerDetailsForm'])->name('sell_on_behalf.seller-details.post');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

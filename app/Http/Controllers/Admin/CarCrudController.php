@@ -63,8 +63,8 @@ class CarCrudController extends CrudController
         CRUD::buttons();
 
 
-        //Filters to query the db  based on specific parameters 
-        
+        //Filters to query the db  based on specific parameters
+
 
 
 
@@ -88,14 +88,6 @@ class CarCrudController extends CrudController
             'images' => ValidUploadMultiple::field('required|min:2|max:5')
                 ->file('file|mimes:jpeg,png,jpg,gif,svg|max:2048'),
         ]);
-
-        CRUD::field([   // Text
-            'name'  => 'registration_number',
-            'label' => 'Car Registration Number',
-            'type'  => 'text',
-        ]);
-
-
     }
 
     /**

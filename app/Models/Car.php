@@ -18,6 +18,7 @@ class Car extends Model
         'year',
         'availability',
         'current_location',
+        'registration_number',
         'mileage',
         'price',
         'description',
