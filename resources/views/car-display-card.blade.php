@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
-
+@include('partials.hero')
+    <div class="container mx-auto mt-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         @foreach ($cars as $car)
         <a href="{{route('cars.show', ['id' => $car->id])}}">
@@ -35,5 +36,6 @@
             </div>
         @endforeach
         </a>
+    </div>
     </div>
 @endsection

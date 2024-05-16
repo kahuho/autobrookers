@@ -83,7 +83,7 @@ class SellOnBehalfOrderController extends Controller
   
         $request->session()->forget('car');
   
-        return redirect()->route('cars.index');
+        return redirect()->route('cars.index')->with('success', 'Sell on behalf order submitted successfully!');
 
 
     }
