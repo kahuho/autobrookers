@@ -14,56 +14,23 @@ class CarController extends Controller
     {
         $cars = Car::all();
 
-
         return view('car-display-card', ['cars' => $cars]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Car $car)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Car $car)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Car $car)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Car $car)
-    {
-        //
+        $car = Car::findOrFail($id);
+        
+        return view('car-detailed-view', compact('car'));
 
     }
+
+    
+   
+
+
 }

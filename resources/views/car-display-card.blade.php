@@ -1,15 +1,16 @@
 @extends('layout')
-
 @section('content')
+
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         @foreach ($cars as $car)
+        <a href="{{route('cars.show', ['id' => $car->id])}}">
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 <!-- Car Image -->
                 <img src="{{ asset($car->images[0] ?? 'default_image.jpg') }}" alt="Car Image" class="h-64 w-full object-cover object-center">
 
                 <div class="p-4">
                     <!-- Car Title -->
-                    <h2 class="text-lg font-semibold text-gray-800">{{ $car->make }} {{ $car->model }}</h2>
+                    <h2 class="text-lg font-semibold text-gray-800">{{ $car->make }} {{ $car->model }} {{$car->year}}</h2>
 
                     <!-- Car Brief Description -->
                     <p class="text-sm text-gray-600 mt-1">{{ Str::limit($car->description, 100) }}</p>
@@ -27,14 +28,12 @@
                     </div>
 
                     <div class="mt-4 flex items-center justify-between">
-                        <!-- Car Year -->
-                        <span class="text-gray-700">{{ $car->year }}</span>
-
                         <!-- Car Price -->
                         <span class="font-semibold text-gray-900">KSH {{ number_format($car->price, 2) }}</span>
                     </div>
                 </div>
             </div>
         @endforeach
+        </a>
     </div>
 @endsection

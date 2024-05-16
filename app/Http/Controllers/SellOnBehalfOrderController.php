@@ -76,6 +76,9 @@ class SellOnBehalfOrderController extends Controller
         ]);
 
         $car = $request->session()->get('car');
+
+        $car->fill($validatedData);
+        
         $car->save();
   
         $request->session()->forget('car');
