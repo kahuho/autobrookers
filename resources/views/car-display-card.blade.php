@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
 @include('partials.hero')
+@include('partials.advanced-search-form')
+
     <div class="container mx-auto mt-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         @foreach ($cars as $car)
@@ -36,6 +38,9 @@
             </div>
         @endforeach
         </a>
+    </div>
+    <div class="mt-4">
+        {{ $cars->appends(request()->input())->links() }}
     </div>
     </div>
 @endsection
