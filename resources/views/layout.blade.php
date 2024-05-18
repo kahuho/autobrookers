@@ -25,8 +25,8 @@
                 <div class="flex space-x-4">
                     <a href="{{ route('cars.index') }}" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Vehicles in Stock</a>
                     <a href="{{ route('sell_on_behalf.car-details') }}" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Sell Your Car</a>
-                    <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">About</a>
-                    <a href="#" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Search</a>
+                    <a href="{{route('about')}}" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">About</a>
+                    <a href="{{route('contact')}}" class="px-3 py-2 text-gray-500 hover:text-gray-900 font-medium">Contact Us</a>
                     <!-- Breeze Authentication Links -->
                     @auth
                         <!-- User is authenticated -->

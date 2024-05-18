@@ -16,11 +16,7 @@ use App\Http\Controllers\CarController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('layout');
-});
-*/
+
 
 //Routes for viewing car listings in the home page and detailed view of each unit
 Route::get('/', [CarController::class, 'index'])->name('cars.index');
@@ -34,6 +30,10 @@ Route::post('sell-on-behalf/car-details', [SellOnBehalfOrderController::class, '
 Route::get('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'createSellerDetailsForm'])->name('sell_on_behalf.seller-details');
 Route::post('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'postSellerDetailsForm'])->name('sell_on_behalf.seller-details.post');
 
+//  About and contact page routes
+Route::view('/about', 'about')->name('about');
+Route::view('/contact', 'contact')->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 Route::get('/dashboard', function () {
@@ -42,7 +42,7 @@ Route::get('/dashboard', function () {
 
 
 
-//test routes 
+//test routes for CarApi
 Route::get('/test-api', [VehicleController::class, 'testApi']);
 
 
