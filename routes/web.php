@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\SellOnBehalfOrderController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Car;
 use App\Http\Controllers\CarController;
@@ -34,6 +35,9 @@ Route::post('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+//search 
+Route::get('/search', [CarController::class, 'search'])->withoutMiddleware('admin')->name('cars.search');
 
 
 Route::get('/dashboard', function () {

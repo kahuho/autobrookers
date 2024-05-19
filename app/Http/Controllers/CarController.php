@@ -12,25 +12,8 @@ class CarController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Car::query();
 
-        if ($request->has('make')) {
-            $query->where('make', 'like', '%' . $request->input('make') . '%');
-        }
-
-        if ($request->has('model')) {
-            $query->where('model', 'like', '%' . $request->input('model') . '%');
-        }
-
-        if ($request->has('min_price')) {
-            $query->where('price', '>=', $request->input('min_price'));
-        }
-
-        if ($request->has('max_price')) {
-            $query->where('price', '<=', $request->input('max_price'));
-        }
-
-        $cars = $query->paginate(16);
+        $cars = Car::paginate(16);
 
         return view('car-display-card', ['cars' => $cars]);
     }
@@ -38,17 +21,54 @@ class CarController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    
+
     public function show($id)
     {
         $car = Car::findOrFail($id);
-        
+
         return view('car-detailed-view', compact('car'));
 
     }
 
-    
-   
+    // Query the db to support searched for specific models, makes, and prices
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+
+        $cars = Car::query();
+
+        // Search by make or model
+        if ($query) {
+            $cars->where(function($q) use ($query) {
+                $q->where('make', 'like', "%$query%")
+                  ->orWhere('model', 'like', "%$query%");
+            });
+        }
+
+        // Filter by minimum price
+        if ($minPrice) {
+            $cars->where('price', '>=', $minPrice);
+        }
+
+        // Filter by maximum price
+        if ($maxPrice) {
+            $cars->where('price', '<=', $maxPrice);
+        }
+
+        $cars = $cars->paginate(8);
+
+        if ($cars->isEmpty()) {
+            $message = 'No cars found matching your search criteria.';
+        } else {
+            $message = null;
+        }
+
+        return view('car-display-card', ['cars' => $cars, 'message' => $message]);
+    }
+
+
 
 
 }
