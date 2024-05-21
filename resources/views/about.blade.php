@@ -39,15 +39,19 @@
             <h2 class="text-4xl font-bold text-gray-800">What We Offer</h2>
             <p class="text-lg text-gray-600 mt-4">Explore our range of services designed to cater to all your automobile needs.</p>
         </div>
+        <a href="{{ route('cars.index') }}">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-bold text-gray-800">Buy a Car</h3>
                 <p class="text-gray-600 mt-4">Find your dream car from our extensive inventory. We offer a wide range of makes and models to suit every preference and budget.</p>
             </div>
+        </a>
+            <a href="{{ route('sell_on_behalf.car-details') }}">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-bold text-gray-800">Sell Your Car</h3>
                 <p class="text-gray-600 mt-4">Get the best value for your car with our hassle-free selling process. We handle everything from valuation to final sale.</p>
             </div>
+            </a>
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-bold text-gray-800">Sell on Behalf</h3>
                 <p class="text-gray-600 mt-4">Let us sell your car on your behalf. We take care of all the details, ensuring you get the best possible price with minimal effort.</p>

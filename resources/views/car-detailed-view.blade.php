@@ -1,4 +1,3 @@
-
 @extends('layout')
 @section('content')
 
@@ -7,18 +6,28 @@
             <div class="flex flex-wrap justify-center">
                 <!-- Car Images -->
                 <div class="w-full lg:w-1/2 px-4 mb-8">
-                    <div class="flex justify-center">
-
-                        @foreach($car->images as $image)
-                            <img src="{{ asset($image) }}" alt="Car Image" class="w-full h-auto">
-                        @endforeach
-
+                    <div id="carCarousel" class="relative">
+                        <div class="carousel-inner relative w-full overflow-hidden">
+                            @foreach($car->images as $index => $image)
+                                <div class="carousel-item @if($index === 0) active @endif relative float-left w-full">
+                                    <img src="{{ asset($image) }}" alt="Car Image" class="block w-full">
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev absolute top-0 bottom-0 left-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next absolute top-0 bottom-0 right-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Car Details -->
                 <div class="w-full lg:w-1/2 px-4 mb-8">
-                    <h1 class="text-2xl font-bold mb-4">{{ $car->make }} {{ $car->model }}</h1>
+                    <h1 class="text-2xl font-bold mb-4">{{ $car->make }} {{ $car->model }} ({{ $car->year }})</h1>
                     <p class="text-gray-700 mb-4">{{ $car->description }}</p>
 
                     <!-- Other Specs Table -->
@@ -41,7 +50,7 @@
                                 <tr>
                                     <td class="font-bold">Current Location:</td>
                                     <td>{{ $car->current_location }}</td>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <td class="font-bold">Horse Power:</td>
                                     <td>{{ $car->horse_power }}</td>
@@ -71,12 +80,17 @@
                     </div>
 
                     <!-- Inquiry Buttons -->
-                    <div class="mt-8">
-                        <a href="" class="bg-green-500 text-white py-2 px-4 rounded mr-4">WhatsApp Inquiry</a>
-                        <a href="" class="bg-blue-500 text-white py-2 px-4 rounded">Call Inquiry</a>
+                    <div class="mt-8 flex flex-col space-y-4">
+                        <a href="https://wa.me/254707833551?text=Hi, I am interested in this {{ $car->make }} {{ $car->model }} ({{ route('cars.show', ['id' => $car->id]) }})" class="bg-green-500 text-white py-2 px-4 rounded flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp Inquiry
+                        </a>
+                        <a href="tel:+254707833551" class="bg-blue-500 text-white py-2 px-4 rounded flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i> Call Inquiry
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

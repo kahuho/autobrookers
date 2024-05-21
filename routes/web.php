@@ -24,19 +24,19 @@ Route::get('/', [CarController::class, 'index'])->name('cars.index');
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 
 
-// Routes for selling on behalf 
+// Routes for selling on behalf
 Route::get('sell-on-behalf/car-details', [SellOnBehalfOrderController::class, 'createCarDetailsForm'])->name('sell_on_behalf.car-details');
 Route::post('sell-on-behalf/car-details', [SellOnBehalfOrderController::class, 'postCarDetailsForm'])->name('sell_on_behalf.car-details.post');
-  
+
 Route::get('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'createSellerDetailsForm'])->name('sell_on_behalf.seller-details');
 Route::post('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'postSellerDetailsForm'])->name('sell_on_behalf.seller-details.post');
 
 //  About and contact page routes
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+//Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-//search 
+//search
 Route::get('/search', [CarController::class, 'search'])->withoutMiddleware('admin')->name('cars.search');
 
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trusted Autobrokers</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
+
 </head>
 <body class="bg-gray-100">
 
@@ -71,7 +71,7 @@
         <div class="text-center md:text-left">
             <h4 class="text-lg font-semibold mb-4">Support</h4>
             <ul class="text-sm">
-                <li><a href="#">FAQs</a></li>
+                <li><a href="{{route('backpack.auth.login')}}">Admin</a></li>
                 <li><a href="#">Shipping & Returns</a></li>
                 <li><a href="#">Terms and Conditions</a></li>
             </ul>

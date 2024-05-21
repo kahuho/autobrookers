@@ -25,7 +25,7 @@ class SellOnBehalfOrderController extends Controller
         return view('sell_on_behalf.car-details', compact('car'));
     }
 
-    //post data for the car details form 
+    //post data for the car details form
     public function postCarDetailsForm(Request $request)
     {
         $validatedData = $request->validate([
@@ -38,7 +38,7 @@ class SellOnBehalfOrderController extends Controller
             'asking_price' => 'required|numeric',
             'location' => 'required|string',
         ]);
-        
+
         if(empty($request->session()->get('car'))){
             $car = new SellOnBehalfOrder();
             $car->fill($validatedData);
@@ -48,16 +48,16 @@ class SellOnBehalfOrderController extends Controller
             $car->fill($validatedData);
             $request->session()->put('car', $car);
         }
-  
+
         return redirect()->route('sell_on_behalf.seller-details');
     }
 
 
-    // Create form for adding personal details to be used for contact 
+    // Create form for adding personal details to be used for contact
     public function createSellerDetailsForm(Request $request)
     {
         $car = $request->session()->get('car');
-  
+
         return view('sell_on_behalf.seller-details',compact('car'));
 
     }
@@ -78,12 +78,12 @@ class SellOnBehalfOrderController extends Controller
         $car = $request->session()->get('car');
 
         $car->fill($validatedData);
-        
+
         $car->save();
-  
+
         $request->session()->forget('car');
-  
-        return redirect()->route('cars.index')->with('success', 'Sell on behalf order submitted successfully!');
+
+        return redirect()->route('cars.index')->with('success', 'Your request was submitted successfully. One of our agents will get in touch with you soon. In the meantime browse our cataglog to find your next vehicle.');
 
 
     }
