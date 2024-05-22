@@ -38,8 +38,8 @@ A web application built with Laravel and Tailwind CSS for listing, searching, an
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/car-listings.git
-   cd car-listings
+https://github.com/kahuho/autobrookers.git
+cd autobrookers
    ```
 
 2. **Install PHP dependencies:**
