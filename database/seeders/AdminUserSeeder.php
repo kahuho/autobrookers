@@ -19,7 +19,7 @@ class AdminUserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'kahuhobrian0@gmail.com',
             'password' => Hash::make('Brykahn#123'), // change this to a secure password
-            'is_admin' => true, // Assuming you have an `is_admin` field to distinguish admin users
+            'usertype' => 'admin', // Assuming you have an `is_admin` field to distinguish admin users
         ]);
     }
 }

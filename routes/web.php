@@ -34,7 +34,7 @@ Route::post('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class
 //  About and contact page routes
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
-//Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 //search
 Route::get('/search', [CarController::class, 'search'])->withoutMiddleware('admin')->name('cars.search');

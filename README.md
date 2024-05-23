@@ -1,7 +1,10 @@
 
 ```markdown
 # Car Listings Platform
-A web application built with Laravel and Tailwind CSS for listing, searching, and selling cars. The admin(autobroker) can add, edit, preview, and delete listings of cars in their yard. Users/poetntail customers can view detailed car information, inquire via WhatsApp, and submit "sell on behalf" orders (Requests for the autobroker to sell a vehicle on their behalf). The platform leverages PostgreSQL for the database, providing a seamless experience for car buyers and sellers.
+A web application built with Laravel and Tailwind CSS for listing, searching, and selling cars.
+The admin(autobroker) can add, edit, preview, and delete listings of cars in their yard. 
+Users/poetntail customers can view detailed car information, inquire via WhatsApp, and submit "sell on behalf" orders (Requests for the autobroker to sell a vehicle on their behalf). 
+The platform leverages PostgreSQL for the database, providing a seamless experience for car buyers and sellers.
 ## Table of Contents
 
 - [Features](#features)

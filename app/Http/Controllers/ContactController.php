@@ -1,3 +1,4 @@
+<?php
 
 namespace App\Http\Controllers;
 
@@ -24,8 +25,8 @@ class ContactController extends Controller
         Contact::create($request->all());
 
         // Optionally, send an email notification
-        Mail::to(config('mail.from.address'))->send(new ContactFormMail($request->all()));
+        //Mail::to(config('mail.from.address'))->send(new ContactFormMail($request->all()));
 
-        return redirect()->route('contact')->with('success', 'Your message has been sent successfully!');
+        return redirect()->route('contact')->with('success', 'Your message has been sent successfully. We will get back to you within 24 hours');
     }
 }

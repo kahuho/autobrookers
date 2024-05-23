@@ -24,7 +24,7 @@
             <!-- Contact Form -->
             <div class="md:w-1/2 md:pr-8">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Send Us a Message</h2>
-                <form action="{{ route('contact') }}" method="POST" class="bg-white p-8 rounded-lg shadow-lg">
+                <form action="{{ route('contact.submit') }}" method="POST" class="bg-white p-8 rounded-lg shadow-lg">
                     @csrf
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
