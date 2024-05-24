@@ -40,9 +40,9 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::get('/search', [CarController::class, 'search'])->withoutMiddleware('admin')->name('cars.search');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+  //  return view('car-display-card');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 

@@ -20,7 +20,7 @@
         </div>
         <div class="flex flex-col md:flex-row items-center">
             <div class="md:w-1/2">
-                <img src="{{ asset('images/about-us.jpg') }}" alt="About Us" class="rounded-lg shadow-lg">
+                <img src="{{ asset('images/about_us.png') }}" alt="About Us" class="rounded-lg shadow-lg">
             </div>
             <div class="md:w-1/2 md:ml-8 mt-8 md:mt-0">
                 <h3 class="text-2xl font-bold text-gray-800">Our Mission</h3>

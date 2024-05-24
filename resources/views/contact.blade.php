@@ -68,7 +68,7 @@
                     <p class="text-gray-800 font-bold mb-2">Phone:</p>
                     <p class="text-gray-600 mb-4">(123) 456-7890</p>
                     <p class="text-gray-800 font-bold mb-2">Email:</p>
-                    <p class="text-gray-600 mb-4">info@autobroker.com</p>
+                    <p class="text-gray-600 mb-4">info@trustedautobroker.com</p>
                     <p class="text-gray-800 font-bold mb-2">Working Hours:</p>
                     <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>

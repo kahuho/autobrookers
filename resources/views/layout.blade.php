@@ -16,7 +16,7 @@
             <div class="flex-shrink-0">
                 <a href="#" class="flex items-center">
                     <!-- Your company logo goes here -->
-                    <img class="h-8 w-auto" src="company_logo.png" alt="Company Logo">
+                    <img class="h-8 w-auto" src="{{ asset('images/company_logo.png') }}" alt="Company Logo">
                 </a>
             </div>
 
@@ -60,8 +60,8 @@
         <div class="text-center md:text-left">
             <h4 class="text-lg font-semibold mb-4">Company</h4>
             <ul class="text-sm">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{route('about')}}">About Us</a></li>
+                <li><a href="{{route('contact')}}">Contact Us</a></li>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms of Service</a></li>
             </ul>
