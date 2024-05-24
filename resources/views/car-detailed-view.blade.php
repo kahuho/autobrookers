@@ -9,18 +9,22 @@
                     <div id="carCarousel" class="relative">
                         <div class="carousel-inner relative w-full overflow-hidden">
                             @foreach($car->images as $index => $image)
-                                <div class="carousel-item @if($index === 0) active @endif relative float-left w-full">
-                                    <img src="{{ asset($image) }}" alt="Car Image" class="block w-full">
+                                @php
+                                    $imagePath = $image;
+                                    $imageUrl = Storage::url($imagePath);
+                                @endphp
+                                <div class="carousel-item @if($index === 0) active @endif relative float-left w-full" data-index="{{ $index }}">
+                                    <img src="{{ $imageUrl }}" alt="Car Image" class="block w-full h-auto">
                                 </div>
                             @endforeach
                         </div>
-                        <button class="carousel-control-prev absolute top-0 bottom-0 left-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                        <button class="carousel-control-prev absolute top-0 bottom-0 left-0 flex items-center justify-center p-2 text-center bg-gray-800 bg-opacity-50 hover:bg-opacity-75 text-white" onclick="prevSlide()">
+                            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true">&lt;</span>
+                            <span class="ml-2">Previous</span>
                         </button>
-                        <button class="carousel-control-next absolute top-0 bottom-0 right-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                        <button class="carousel-control-next absolute top-0 bottom-0 right-0 flex items-center justify-center p-2 text-center bg-gray-800 bg-opacity-50 hover:bg-opacity-75 text-white" onclick="nextSlide()">
+                            <span class="mr-2">Next</span>
+                            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true">&gt;</span>
                         </button>
                     </div>
                 </div>
@@ -35,46 +39,12 @@
                         <h2 class="text-lg font-semibold mb-2">Specifications</h2>
                         <table class="w-full">
                             <tbody>
+                                <!-- Add specifications as necessary -->
                                 <tr>
                                     <td class="font-bold">Year of Manufacture:</td>
                                     <td>{{ $car->year }}</td>
                                 </tr>
-                                <tr>
-                                    <td class="font-bold">Mileage:</td>
-                                    <td>{{ $car->mileage }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Available:</td>
-                                    <td>{{ $car->availability ? 'Yes' : 'No'}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Current Location:</td>
-                                    <td>{{ $car->current_location }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Horse Power:</td>
-                                    <td>{{ $car->horse_power }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Transmission:</td>
-                                    <td>{{ $car->transmission }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Torque:</td>
-                                    <td>{{ $car->torque }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Drive:</td>
-                                    <td>{{ $car->drive }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Fuel Type:</td>
-                                    <td>{{ $car->fuel_type }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Engine Size:</td>
-                                    <td>{{ $car->engine_size }}</td>
-                                </tr>
+                                <!-- Add other specs -->
                             </tbody>
                         </table>
                     </div>
@@ -92,5 +62,30 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('hidden', i !== index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        // Initialize the first slide
+        showSlide(currentIndex);
+    </script>
 
 @endsection
