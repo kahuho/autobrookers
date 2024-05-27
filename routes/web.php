@@ -31,8 +31,17 @@ Route::post('sell-on-behalf/car-details', [SellOnBehalfOrderController::class, '
 Route::get('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'createSellerDetailsForm'])->name('sell_on_behalf.seller-details');
 Route::post('sell-on-behalf/seller-details', [SellOnBehalfOrderController::class, 'postSellerDetailsForm'])->name('sell_on_behalf.seller-details.post');
 
-//  About and contact page routes
+//  About, FAQ, and Contact page routes
 Route::view('/about', 'about')->name('about');
+// routes/web.php
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+// routes/web.php
+Route::get('/privacy-policy', function () {
+    return view('privacy-policy');
+})->name('privacy-policy');
+
 Route::view('/contact', 'contact')->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 

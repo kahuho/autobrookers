@@ -62,7 +62,7 @@
             <ul class="text-sm">
                 <li><a href="{{route('about')}}">About Us</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="{{route('privacy-policy')}}">Privacy Policy</a></li>
                 <li><a href="#">Terms of Service</a></li>
             </ul>
         </div>

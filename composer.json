@@ -8,7 +8,6 @@
         "php": "^8.1",
         "backpack/crud": "^6.7",
         "backpack/medialibrary-uploaders": "*",
-        "backpack/pro": "*",
         "backpack/theme-tabler": "^1.2",
         "car-api-team/carapi-php-sdk": "^1.1",
         "doctrine/dbal": "^3.5.1",
@@ -20,12 +19,11 @@
         "spatie/laravel-medialibrary": "^10.0.0"
     },
     "require-dev": {
-        "backpack/devtools": "*",
         "backpack/generators": "*",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.29",
         "laravel/pint": "^1.0",
-        "laravel/sail": "*",
+        "laravel/sail": "^1.29",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.1",
